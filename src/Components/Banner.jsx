@@ -29,7 +29,7 @@ const Banner = () => {
               </p>
             </div>
             <div className="flex flex-col items-center md:flex-row">
-            <Link to={'/login'} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-6 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Log In</Link>
+            <Link to={'/login'} type="button" className="text-white bg-yellow-400 hover:bg-yellow-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-6 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Log In</Link>
               <a
                 href="/"
                 aria-label=""

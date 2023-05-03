@@ -40,7 +40,7 @@ const Register = () => {
 
     return (
         <div className='mt-16 mb-20'>
-            <div className=' hover:bg-teal-200 container border-2 w-9/12 bg-teal-400 rounded-lg m-auto  '>
+            <div className=' hover:bg-yellow-200 container border-2 w-9/12 bg-yellow-400 rounded-lg m-auto  '>
             <h1 className='text-center text-4xl font-bold mb-10 mt-6'>Sign Up</h1>
             <form onSubmit={handleReg} className='text-center '>
                 <p className='mr-56'>Email Address</p>

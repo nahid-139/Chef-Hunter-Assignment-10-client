@@ -25,7 +25,7 @@ const LogIn = () => {
     }
     return (
         <div className='mt-6 mb-20'>
-            <div className='container border-2 w-9/12 bg-teal-400 hover:bg-teal-200 rounded-lg m-auto  '>
+            <div className='container border-2 w-9/12 bg-yellow-400 hover:bg-yellow-200 rounded-lg m-auto  '>
             <h1 className='text-center text-4xl font-bold mb-10 mt-6'>Log In</h1>
             <form onSubmit={handleLogIn} className='text-center'>
             <p className='mr-56'>Email Address</p>

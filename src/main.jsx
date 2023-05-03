@@ -11,7 +11,7 @@ import Home from './Components/Home.jsx';
 import LogIn from './Components/LogIn.jsx';
 import Register from './Components/Register.jsx';
 import AuthProvider from './Components/Provider/AuthProvider.jsx';
-import Services from './Components/Services.jsx';
+import RecipeDetails from './Components/RecipeDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,8 +31,8 @@ const router = createBrowserRouter([
         element:<Register></Register>
       },
       {
-        path:'/services',
-        element:<Services></Services>
+        path:'/recipeDetails',
+        element:<RecipeDetails></RecipeDetails>
       }
     ]
   },
