@@ -7,32 +7,48 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Main from './Layout/Main.jsx';
-import Home from './Components/Home.jsx';
-import LogIn from './Components/LogIn.jsx';
-import Register from './Components/Register.jsx';
+import Home from './Components/Home/Home.jsx';
+import LogIn from './Components/LogIn/LogIn.jsx';
+import Register from './Components/Register/Register.jsx';
 import AuthProvider from './Components/Provider/AuthProvider.jsx';
-import RecipeDetails from './Components/RecipeDetails.jsx';
+import Recipes from './Components/Recipes/Recipes.jsx';
+import ErrorPage from './Components/ErrorPage/ErrorPage.jsx';
+import RecipeDetails from './Components/Recipes/RecipeDetails.jsx';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
+import AllRecipes from './Components/Recipes/AllRecipes.jsx';
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    children : [
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
       {
-        path :'/',
+        path: '/',
         element: <Home></Home>
       },
       {
-        path:'/login',
-        element:<LogIn></LogIn>
+        path: '/login',
+        element: <LogIn></LogIn>
       },
       {
-        path:'/signup',
-        element:<Register></Register>
+        path: '/signup',
+        element: <Register></Register>
       },
       {
-        path:'/recipeDetails',
-        element:<RecipeDetails></RecipeDetails>
+        path: '/chef/:id',
+        element: <Recipes></Recipes>,
+        loader:({params}) => fetch(`http://localhost:5000/chef/${params.id}`)
+      },
+      {
+        path: '/recipes/:id',
+        element: <PrivateRoute><RecipeDetails></RecipeDetails></PrivateRoute>,
+        loader: ({params}) => fetch(`http://localhost:5000/recipes/${params.id}`)
+      },
+      {
+        path:"/allrecipes",
+        element:<AllRecipes></AllRecipes>
       }
     ]
   },
@@ -40,8 +56,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-     <AuthProvider>
-     <RouterProvider router={router} />
-     </AuthProvider>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )

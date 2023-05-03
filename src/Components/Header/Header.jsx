@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from './Provider/AuthProvider';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Header = () => {
   const {user,logOut} = useContext (AuthContext);
@@ -17,20 +17,26 @@ const Header = () => {
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
   <a className="flex items-center">
       <img src="" className="h-8 mr-3" alt="" />
-      <span className="self-center text-2xl whitespace-nowrap dark:text-white font-bold">Chef Custody</span>
+      <Link to={'/'} className="self-center text-2xl whitespace-nowrap dark:text-white font-bold">Chef Custody</Link>
   </a>
+  
   <div className="flex items-center md:order-2">
   <Link to={'/login'} type="button" className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-6 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Log In</Link>
-  <Link to={'/signup'} type="button" className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-6 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Sign Up</Link>
+  <Link to={'/signUp'} type="button" className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-6 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Sign Up</Link>
+  {
+  user && <span><button onClick={handleLogOut} type="submit" className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-6 mb-2 mt-6 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Sign Out</button><h1 className=' '>Welcome <span className=' text-yellow-400'>{user?.email}</span></h1></span> 
+  
+  }
+  
       <button type="button" className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
         <span className="sr-only">Open user menu</span>
-        <img className="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo"/>
+        <img className="w-8 h-8 rounded-full" data-tooltip-target="tooltip-default"  src={user?.photoURL} alt="user photo"/>
+       
       </button>
       
       <div className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
         <div className="px-4 py-3">
           <span className="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-          <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
         </div>
         <ul className="py-2" aria-labelledby="user-menu-button">
           
@@ -53,20 +59,14 @@ const Header = () => {
         <Link href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</Link>
       </li>
       <li>
-        <Link to={'/recipeDetails'} className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Recipes</Link>
+        <Link to={'/allrecipes'} className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Recipes</Link>
       </li>
       <li>
         <Link href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Pricing</Link>
       </li>
     </ul>
-    {
-  user && <span>Welcome{user.email}<button onClick={handleLogOut} type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg w-full sm:w-auto px-10 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 
-  mb-12">Sign Out</button></span> 
-  }
   </div>
-  
   </div>
- 
 </nav>
         </div>
     );

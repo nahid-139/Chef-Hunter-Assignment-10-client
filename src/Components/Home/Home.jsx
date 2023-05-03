@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import Banner from './Banner';
+import Banner from '../Banner/Banner';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [chefs, setChef] = useState([]);
-  const [recipes,setRepices]=useState([]);
 
   useEffect(() => {
     fetch("http://localhost:5000/chef")
@@ -14,11 +13,6 @@ const Home = () => {
   }, []);
   console.log(chefs);
 
-  useEffect(()=> {
-    fetch("http://localhost:5000/recipes")
-    .then((response) => response.json())
-    .then((data)=> setRepices(data));
-  },[]);
 
 
   return (
@@ -49,7 +43,7 @@ const Home = () => {
                           {chef.famous_recipes[0]}
                         </h6>
                         <p className="text-sm text-gray-900">
-                          <img src={chef.recipe_url} alt="" />
+                          <img src={chef.recipe_url[1]} alt="" />
                         </p>
                       </div>
                     </div>
@@ -60,9 +54,17 @@ const Home = () => {
                         </h6>
                         <p className=" text-gray-900">
                           <ul>
-                            <li className='text-2xl font-bold'> {chef.famous_recipes[0]}</li>
-                            <p>How to make you this recipe.In your house.Click below for more details.....</p>
-                            <Link to={'recipeDetails'} type="button" className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mt-4 mr-6 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Recipe Details</Link>
+                            <li className='text-lg font-bold'> 
+                            1. {chef.famous_recipes[0]}
+                            </li>
+                            <li className='text-lg font-bold'> 
+                            2. {chef.famous_recipes[1]}
+                            </li>
+                            <li className='text-lg font-bold'> 
+                            3.{chef.famous_recipes[2]}
+                            </li>
+                            <p className='mt-2'>To see more of our  recipes an details. Click here.....</p>
+                            <Link to={`/chef/${chef.id}`} type="button" className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mt-4 mr-6 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"> All Recipes</Link>
                             
                           </ul>
                         </p>
