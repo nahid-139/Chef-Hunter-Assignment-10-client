@@ -16,6 +16,7 @@ import ErrorPage from './Components/ErrorPage/ErrorPage.jsx';
 import RecipeDetails from './Components/Recipes/RecipeDetails.jsx';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
 import AllRecipes from './Components/Recipes/AllRecipes.jsx';
+import Blogs from './Components/Blogs/Blogs.jsx';
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path:"/allrecipes",
         element:<AllRecipes></AllRecipes>
+      },
+      {
+        path:'/blogs',
+        element:<Blogs></Blogs>
       }
     ]
   },

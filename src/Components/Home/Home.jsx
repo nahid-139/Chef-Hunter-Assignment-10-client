@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { FaBeer } from 'react-icons/fa';
 import { useState } from 'react';
 import Banner from '../Banner/Banner';
 import { Link } from 'react-router-dom';
+import { FaThumbsUp } from 'react-icons/fa';
 
 const Home = () => {
   const [chefs, setChef] = useState([]);
@@ -38,7 +38,10 @@ const Home = () => {
                     </p>
                     <div className='flex justify-between align-middle text-stone-300 mt-6'>
                     <p>Experience: {chef.experience_years} years</p>
-                    <p>Likes: {chef.likes}<FaBeer></FaBeer></p>
+                    <div className='flex gap-2 align-middle'>
+                    <p>Likes: {chef.likes}</p>
+                    <FaThumbsUp></FaThumbsUp>
+                    </div>
                     <p>Nationality: {chef.nationality}</p>
                     </div>
                   </div>
