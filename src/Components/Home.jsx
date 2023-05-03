@@ -11,6 +11,7 @@ const Home = () => {
     .then((data) => setHomeData(data));
     },[]);
     console.log(homeData);
+
     return (
         <div>
             <Banner></Banner>
@@ -19,7 +20,9 @@ const Home = () => {
              homeData.map(home =><p
              key={home.id}
              >
-                <h1>he is name is {home.name}</h1>
+                <div>
+                    
+                </div>
 
              </p>)
             }
