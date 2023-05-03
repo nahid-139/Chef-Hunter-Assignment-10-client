@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { FaBeer } from 'react-icons/fa';
 import { useState } from 'react';
 import Banner from '../Banner/Banner';
 import { Link } from 'react-router-dom';
@@ -35,6 +36,11 @@ const Home = () => {
                     <p className="text-base text-gray-200 md:text-lg">
                       {chef.bio}
                     </p>
+                    <div className='flex justify-between align-middle text-stone-300 mt-6'>
+                    <p>Experience: {chef.experience_years} years</p>
+                    <p>Likes: {chef.likes}<FaBeer></FaBeer></p>
+                    <p>Nationality: {chef.nationality}</p>
+                    </div>
                   </div>
                   <div className="grid gap-5 row-gap-8 sm:grid-cols-2">
                     <div className="bg-white border-l-4 shadow-sm border-deep-purple-accent-400">
