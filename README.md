@@ -1,7 +1,6 @@
-# Welcome to our Website ---- EduVide
+# Welcome to our Website --Chef Custody
 
-WebSite  [Live Link]...
-or...() Livelink
+WebSite  [Live Link]....() 
 
 ![plot](https://i.ibb.co/vBWVt04/3e8b208aec729fe8ea7e15ead554e7d5-modified.png)
 
@@ -10,15 +9,15 @@ or...() Livelink
 ### How this website  was built?
 > * This is Website in create a React js or Vite-React-App
 > * This is Website second item in React Router
-> * Use Taliwind CSS For Styles and Flowbite, kitwind ui kit etc.
+> * Use Tailwind CSS For Styles and Flowbite, kitwind ui kit etc.
 > * I have alert to used react sweetalert2
 > * I have used setup  data sent components in context api
 > * Used You website in Header,error And Footer
 
 
 ### what is the learn of website?
-> * website A poroper check can check how much the students are learning
-> * About programming language can be learned porpely
+> * Website A proper check can check how much the students are learning
+> * About programming language can be learned properly
 > * The specific programming can take ideas about language
 > * Besides,which programming language is used for what purpose is mentioned
 
@@ -36,9 +35,6 @@ $ npm start or npm run start
 
 Created By on The WEB DEVELOPER MD.Nahid Hasan
 
-.
-
-.
 
 
 

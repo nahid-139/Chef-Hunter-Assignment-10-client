@@ -48,10 +48,10 @@ const Home = () => {
                   <div className="grid gap-5 row-gap-8 sm:grid-cols-2">
                     <div className="bg-white border-l-4 shadow-sm border-deep-purple-accent-400">
                       <div className="h-full p-5 border border-l-0 rounded-r">
-                        <h6 className="mb-2 font-semibold leading-5">
+                        <h6 className="text-xl font-semibold leading-5 mt-4">
                           {chef.famous_recipes[0]}
                         </h6>
-                        <p className="text-sm text-gray-900">
+                        <p className="text-sm text-gray-900 py-10">
                           <img src={chef.recipe_url[1]} alt="" />
                         </p>
                       </div>

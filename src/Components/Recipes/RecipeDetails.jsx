@@ -1,7 +1,15 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RecipeDetails = () => {
+
+    const diffToast =() =>{
+        toast("Favourite Item Selected",{
+            position: "top-center",
+        })
+    }
     const recipeDetails = useLoaderData();
 
     return (
@@ -11,7 +19,7 @@ const RecipeDetails = () => {
             <h1 className='font-bold text-center text-2xl mt-6'>{recipeDetails.name}</h1>
             <h1 className='mt-4 text-lg font-semibold text-center'>{recipeDetails.description}</h1>
             <h1 className='text-center font-bold text-2xl mt-10'>Ingredients</h1>
-            <ul className='text-center mt-6 mb-20 md:ml-80 font-semibold text-lg border md:w-6/12 rounded-2xl bg-yellow-200 py-10 '>
+            <ul className='text-center mt-6 mb-20  md:ml-80 font-semibold text-lg border md:w-6/12 rounded-2xl bg-yellow-200 py-10 '>
                 <li>{recipeDetails.ingredients[0]}</li>
                 <li>{recipeDetails.ingredients[1]}</li>
                 <li>{recipeDetails.ingredients[2]}</li>
@@ -23,7 +31,12 @@ const RecipeDetails = () => {
                 <li>{recipeDetails.ingredients[8]}</li>
                 <li>{recipeDetails.ingredients[9]}</li>
                 <li>{recipeDetails.ingredients[10]}</li>
+                <button onClick={diffToast} className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mt-6 mr-6 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Favourite Item
+            </button>
             </ul>
+            <div>
+            <ToastContainer></ToastContainer>
+            </div>
         </div>
     );
 };

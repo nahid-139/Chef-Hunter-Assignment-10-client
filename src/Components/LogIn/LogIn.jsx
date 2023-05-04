@@ -89,8 +89,8 @@ const from= location.state?.from?.pathname ||'/';
   }
 
     return (
-      <div>
-        <div className='lg:w-4/12 lg:p-10 sm:mb-6 container lg:my-20   bg-stone-200  mx-auto rounded shadow-2xl p-5'>
+      <div className='bg-orange-200 ml-10 mr-10 py-10 rounded-xl mb-10'> 
+        <div className='lg:w-4/12 lg:p-10 sm:mb-6 container lg:my-20  mx-auto rounded shadow-2xl  pt-10 border bg-yellow-300'>
            <h3 className="lg:text-center  mb-4 lg:text-3xl font-bold sm:text-center sm:mb-6 sm:text-2xl">
                   Login
                 </h3>
@@ -131,7 +131,7 @@ const from= location.state?.from?.pathname ||'/';
                   <div className="mt-4 mb-2 sm:mb-4">
                     <button
                       type="submit"
-                      className="text-xl inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide  bg-lime-300 text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                      className="text-xl inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide  bg-orange-500 text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                     >
                         LOGIN
                       
@@ -142,7 +142,7 @@ const from= location.state?.from?.pathname ||'/';
                    <p onClick={handleForgetPassword} className=' lg:text-xl sm:text-xs underline text-blue-600 underline-offset-1'>Forget Password</p>
                    <br></br>
                     <p className="lg:text-xl  text-gray-600 sm:text-sm">
-                          New User In Webside ? <Link className=' underline  text-cyan-500' to='/register'>Please Register</Link>
+                          New User In Webside ? <Link className=' underline  text-cyan-500' to='/signUp'>Please Register</Link>
                          </p>
                      </div>
                   </div>
@@ -153,14 +153,14 @@ const from= location.state?.from?.pathname ||'/';
                       type="submit"
                       className="my-5 text-xl inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide  bg-blue-600 text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                     >
-                      <FaGoogle></FaGoogle> <span className='ml-5'>Login With Google</span>
+                      <FaGoogle></FaGoogle><span className='ml-2'>Google</span>
                     </button>
                     <button
                     onClick={handleSignInGithub}
                       type="submit"
                       className="text-xl inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide bg-black text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                     >
-                     <FaGithub/>  <span className='ml-5'>Login With GitHub</span>
+                     <FaGithub/><span className='ml-2'>GitHub</span>
                     </button>
                 </div>
            </div>

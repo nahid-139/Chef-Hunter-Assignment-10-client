@@ -1,71 +1,234 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import {  FaUser } from 'react-icons/fa';
+import { Link, NavLink } from 'react-router-dom';
+// import { AuthContext } from '../../Context/UseContext';
+// import img from '../../logo.png'
+// import './Header.css'
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Header = () => {
-  const {user,logOut} = useContext (AuthContext);
-  const handleLogOut = () => {
-    logOut()
-    .then(result=>{})
-    .catch(error =>{console.error(error)});
+  
+      const [isMenuOpen, setIsMenuOpen] = useState(false);
+      const [darkMode,setDarkmode]=useState(false)
 
-  }
+      const {user,logOut}=useContext(AuthContext);
+
+      // logout handler 
+      const handleSignOut =()=>{
+       logOut()
+       .then(()=>{
+
+       })
+       .catch((error)=>{
+        console.error(error)
+       })
+      }
+
+
     return (
+    <div>
         <div>
-            
-<nav className="bg-white border-gray-200 dark:bg-gray-900">
-  <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-  <Link to={'/'} className="flex items-center">
-      <img src="https://i.ibb.co/8dwwFRt/3e8b208aec729fe8ea7e15ead554e7d5-1.jpg" className="h-8 mr-3 " alt="" />
-      <p className="self-center text-2xl whitespace-nowrap dark:text-white font-bold">Chef Custody</p>
-  </Link>
-  
-  <div className="flex items-center md:order-2">
-  <Link to={'/login'} type="button" className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-6 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Log In</Link>
-  <Link to={'/signUp'} type="button" className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-6 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Sign Up</Link>
-  {
-  user && <span><button onClick={handleLogOut} type="submit" className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-6 mb-2 mt-6 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Sign Out</button><h1 className=' '>Welcome <span className=' text-yellow-400'>{user?.email}</span></h1></span> 
-  
-  }
-  
-      <button type="button" className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-        <span className="sr-only">Open user menu</span>
-        <img className="w-8 h-8 rounded-full" data-tooltip-target="tooltip-default"  src={user?.photoURL} alt="user photo"/>
-       
-      </button>
-      
-      <div className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
-        <div className="px-4 py-3">
-          <span className="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-        </div>
-        <ul className="py-2" aria-labelledby="user-menu-button">
-          
-          <li>
-            <Link className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</Link>
-          </li>
-        </ul>
+               <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+              <div className="relative flex items-center justify-between">
+          <div className="flex items-center">
+            <Link
+              to="/"
+              aria-label="Company"
+              title="Company"
+              className="inline-flex items-center mr-8"
+            >
+              <div className=" flex align- ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
+                <img src="https://i.ibb.co/vBWVt04/3e8b208aec729fe8ea7e15ead554e7d5-modified.png"className='w-4/12' alt="" />
+                <p className='text-black mt-10'>Chef Custody</p>
+              </div>
+            </Link>
+            <ul className="flex items-center hidden space-x-8 lg:flex">
+              <li>
+                <NavLink
+                  to="/"
+                  aria-label="Our product"
+                  title="Our product"
+                  className={({isActive})=>isActive?"font-medium tracking-wide text-xl capitalize  text-blue-500 transition-colors duration-200 hover:text-teal-accent-400":"font-medium tracking-wide text-xl capitalize text-black-100 transition-colors duration-200 hover:text-teal-accent-400"}
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/allrecipes"
+                  aria-label="Our product"
+                  title="Our product"
+                  className={({isActive})=>isActive?"font-medium tracking-wide text-xl capitalize  text-black-500 transition-colors duration-200 hover:text-teal-accent-400":"font-medium tracking-wide text-xl capitalize text-black-100 transition-colors duration-200 hover:text-teal-accent-400"}
+                >
+                  Recipes
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/blogs"
+                  aria-label="About us"
+                  title="About us"
+                  className={({isActive})=>isActive?"font-medium tracking-wide text-xl capitalize  text-blue-500 transition-colors duration-200 hover:text-teal-accent-400":"font-medium tracking-wide text-xl capitalize text-black-100 transition-colors duration-200 hover:text-teal-accent-400"}
+                >
+                 Blogs
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+          <ul className="flex items-center hidden space-x-8 lg:flex">
+           {
+            user?.uid?<><p className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black  capitalize text-xl transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'>{user?.displayName}</p>
+            <button className='bg-white  inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black  capitalize text-2xl transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none' onClick={handleSignOut}>Logout</button>
+            </>:<>
+            <li>
+              <Link
+                to="/signUp"
+                className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mt-60 mr-6 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                aria-label="Sign up"
+                title="Sign up"
+              >
+                Sign up
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/login"
+                className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mt-60 mr-6 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                aria-label="Sign up"
+                title="Sign up"
+              >
+                Log In
+              </Link>
+            </li>
+            </>
+           }
+           {user?.photoURL?<img className='w-12 rounded-full' title={user?.displayName} src={user?.photoURL} alt="" />:<span className='text-white text-xl w-10 h-10 bg-zinc-500 flex justify-center rounded-full items-center'><FaUser></FaUser></span>
+           }
+          </ul>
+          <div className="lg:hidden">
+            <button
+              aria-label="Open Menu"
+              title="Open Menu"
+              className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline"
+              onClick={() => setIsMenuOpen(true)}
+            >
+              <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
+                />
+                <path
+                  fill="currentColor"
+                  d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
+                />
+                <path
+                  fill="currentColor"
+                  d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
+                />
+              </svg>
+            </button>
+            {isMenuOpen && (
+              <div className="absolute top-0 left-0 w-full">
+                <div className="p-5 bg-white border rounded shadow-sm">
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <Link
+                        to="/"
+                        aria-label="Eduvide"
+                        title="Eduvide"
+                        className="inline-flex items-center"
+                      >
+                        <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
+                          {/* <img src={img} alt="" /> */}
+                        </span>
+                      </Link>
+                    </div>
+                    <div>
+                      <button
+                        aria-label="Close Menu"
+                        title="Close Menu"
+                        className="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
+                          <path
+                            fill="currentColor"
+                            d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <nav>
+                    <ul className="space-y-4">
+                      <li>
+                        <NavLink
+                          to="/home"
+                          aria-label="Our product"
+                          title="Our product"
+                          className={({isActive })=> isActive? "font-medium tracking-wide  text-blue-600 transition-colors duration-200 hover:text-deep-purple-accent-400":"font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" }
+                        >
+                          Home
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          to="/courses"
+                          aria-label="Our product"
+                          title="Our product"
+                          className={({isActive })=> isActive? "font-medium tracking-wide  text-blue-600 transition-colors duration-200 hover:text-deep-purple-accent-400":"font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" }
+                        >
+                          Courses
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          to="/faqs"
+                          aria-label="Our product"
+                          title="Our product"
+                          className={({isActive })=> isActive? "font-medium tracking-wide  text-blue-600 transition-colors duration-200 hover:text-deep-purple-accent-400":"font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" }
+                        >
+                          FAQ
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          to="/blog"
+                          aria-label="Our product"
+                          title="Our product"
+                          className={({isActive })=> isActive? "font-medium tracking-wide  text-blue-600 transition-colors duration-200 hover:text-deep-purple-accent-400":"font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" }
+                        >
+                          Blog
+                        </NavLink>
+                      </li>
+                      {
+                        user?.uid?<><p className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black  capitalize text-xl transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'>{user?.displayName}</p>
+                        <button className='bg-white  inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black  capitalize text-2xl transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none' onClick={handleSignOut}>Logout</button>
+                       </>:<>
+                      <li>
+                        <Link
+                          to="/register"
+                          className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide bg-black text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                          aria-label="Sign up"
+                          title="Sign up"
+                        >
+                          Sign up
+                        </Link>
+                      </li>
+                       </>
+                      }
+                     {user?.photoURL?<img className='w-12 rounded-full' title={user?.displayName} src={user?.photoURL} alt="" />:<span className='text-white text-xl w-10 h-10 bg-zinc-500 flex justify-center rounded-full items-center'><FaUser></FaUser></span>
+                      }
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            )}
+          </div>
+         </div>
+       </div>
       </div>
-      <button data-collapse-toggle="mobile-menu-2" type="button" className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
-        <span className="sr-only">Open main menu</span>
-    </button>
-  </div>
-  <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
-    <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-      <li>
-        <Link to={'/'} className="block py-2 pl-3 pr-4 text-white  rounded md:bg-transparent
-        md:hover:text-blue-700 md:text-gray-900 md:p-0 " aria-current="page">Home</Link>
-      </li>
-      <li>
-        <Link to={'/allrecipes'} className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Recipes</Link>
-      </li>
-      <li>
-        <Link to={'/blogs'} className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Blogs</Link>
-      </li>
-    </ul>
-  </div>
-  </div>
-</nav>
-        </div>
+   </div>
     );
 };
 
