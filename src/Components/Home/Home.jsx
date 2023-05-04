@@ -8,7 +8,7 @@ const Home = () => {
   const [chefs, setChef] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/chef")
+    fetch("https://chef-server-rho-three.vercel.app/chef")
       .then((response) => response.json())
       .then((data) => setChef(data));
   }, []);
@@ -72,8 +72,17 @@ const Home = () => {
                             <li className='text-lg font-bold'> 
                             3.{chef.famous_recipes[2]}
                             </li>
+                            <li className='text-lg font-bold'> 
+                            4.{chef.famous_recipes[3]}
+                            </li>
+                            <li className='text-lg font-bold'> 
+                            5.{chef.famous_recipes[4]}
+                            </li>
+                            <li className='text-lg font-bold'> 
+                            6.{chef.famous_recipes[5]}
+                            </li>
                             <p className='mt-2'>To see more of our  recipes an details. Click here.....</p>
-                            <Link to={`/chef/${chef.id}`} type="button" className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mt-4 mr-6 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"> All Recipes</Link>
+                            <Link to={`/chef/${chef.id}`} type="button" className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mt-4 mr-6 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"> Details</Link>
                             
                           </ul>
                         </p>

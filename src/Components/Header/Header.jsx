@@ -1,15 +1,11 @@
 import React, { useContext, useState } from 'react';
 import {  FaUser } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
-// import { AuthContext } from '../../Context/UseContext';
-// import img from '../../logo.png'
-// import './Header.css'
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Header = () => {
   
       const [isMenuOpen, setIsMenuOpen] = useState(false);
-      const [darkMode,setDarkmode]=useState(false)
 
       const {user,logOut}=useContext(AuthContext);
 
@@ -78,7 +74,7 @@ const Header = () => {
           <ul className="flex items-center hidden space-x-8 lg:flex">
            {
             user?.uid?<><p className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black  capitalize text-xl transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'>{user?.displayName}</p>
-            <button className='bg-white  inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black  capitalize text-2xl transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none' onClick={handleSignOut}>Logout</button>
+            <button className='bg-yellow-300  inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black  capitalize text-2xl transition duration-200 rounded-xl shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none' onClick={handleSignOut}>Logout</button>
             </>:<>
             <li>
               <Link
@@ -93,7 +89,7 @@ const Header = () => {
             <li>
               <Link
                 to="/login"
-                className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mt-60 mr-6 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mt-60 mr-6 mb-2 focus:outline-none dark:focus:ring-blue-800"
                 aria-label="Sign up"
                 title="Sign up"
               >
@@ -132,18 +128,6 @@ const Header = () => {
                 <div className="p-5 bg-white border rounded shadow-sm">
                   <div className="flex items-center justify-between mb-4">
                     <div>
-                      <Link
-                        to="/"
-                        aria-label="Eduvide"
-                        title="Eduvide"
-                        className="inline-flex items-center"
-                      >
-                        <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                          {/* <img src={img} alt="" /> */}
-                        </span>
-                      </Link>
-                    </div>
-                    <div>
                       <button
                         aria-label="Close Menu"
                         title="Close Menu"
@@ -163,42 +147,26 @@ const Header = () => {
                     <ul className="space-y-4">
                       <li>
                         <NavLink
-                          to="/home"
-                          aria-label="Our product"
-                          title="Our product"
-                          className={({isActive })=> isActive? "font-medium tracking-wide  text-blue-600 transition-colors duration-200 hover:text-deep-purple-accent-400":"font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" }
+                          to="/"
+                          className={({isActive })=> isActive? "font-medium tracking-wide  text-yellow-600 transition-colors duration-200 hover:text-deep-purple-accent-400":"font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" }
                         >
                           Home
                         </NavLink>
                       </li>
                       <li>
                         <NavLink
-                          to="/courses"
-                          aria-label="Our product"
-                          title="Our product"
+                          to="/allrecipes"
                           className={({isActive })=> isActive? "font-medium tracking-wide  text-blue-600 transition-colors duration-200 hover:text-deep-purple-accent-400":"font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" }
                         >
-                          Courses
+                          Recipes
                         </NavLink>
                       </li>
                       <li>
                         <NavLink
-                          to="/faqs"
-                          aria-label="Our product"
-                          title="Our product"
+                          to="/blogs"
                           className={({isActive })=> isActive? "font-medium tracking-wide  text-blue-600 transition-colors duration-200 hover:text-deep-purple-accent-400":"font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" }
                         >
-                          FAQ
-                        </NavLink>
-                      </li>
-                      <li>
-                        <NavLink
-                          to="/blog"
-                          aria-label="Our product"
-                          title="Our product"
-                          className={({isActive })=> isActive? "font-medium tracking-wide  text-blue-600 transition-colors duration-200 hover:text-deep-purple-accent-400":"font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" }
-                        >
-                          Blog
+                          Blogs
                         </NavLink>
                       </li>
                       {
@@ -207,7 +175,7 @@ const Header = () => {
                        </>:<>
                       <li>
                         <Link
-                          to="/register"
+                          to="/signUp"
                           className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide bg-black text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                           aria-label="Sign up"
                           title="Sign up"

@@ -40,12 +40,12 @@ const router = createBrowserRouter([
       {
         path: '/chef/:id',
         element: <Recipes></Recipes>,
-        loader:({params}) => fetch(`http://localhost:5000/chef/${params.id}`)
+        loader:({params}) => fetch(`https://chef-server-rho-three.vercel.app/chef/${params.id}`)
       },
       {
         path: '/recipes/:id',
         element: <PrivateRoute><RecipeDetails></RecipeDetails></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/recipes/${params.id}`)
+        loader: ({params}) => fetch(`https://chef-server-rho-three.vercel.app/recipes/${params.id}`)
       },
       {
         path:"/allrecipes",
