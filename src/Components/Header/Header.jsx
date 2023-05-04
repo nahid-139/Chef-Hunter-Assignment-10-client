@@ -15,10 +15,10 @@ const Header = () => {
             
 <nav className="bg-white border-gray-200 dark:bg-gray-900">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-  <a className="flex items-center">
-      <img src="" className="h-8 mr-3" alt="" />
-      <Link to={'/'} className="self-center text-2xl whitespace-nowrap dark:text-white font-bold">Chef Custody</Link>
-  </a>
+  <Link to={'/'} className="flex items-center">
+      <img src="https://i.ibb.co/8dwwFRt/3e8b208aec729fe8ea7e15ead554e7d5-1.jpg" className="h-8 mr-3 " alt="" />
+      <p className="self-center text-2xl whitespace-nowrap dark:text-white font-bold">Chef Custody</p>
+  </Link>
   
   <div className="flex items-center md:order-2">
   <Link to={'/login'} type="button" className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-6 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Log In</Link>
