@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import {  FaUser } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import ActiveLink from '../ActiveLink/ActiveLink';
 
 const Header = () => {
   
@@ -40,34 +41,34 @@ const Header = () => {
             </Link>
             <ul className="flex items-center hidden space-x-8 lg:flex">
               <li>
-                <NavLink
+                <ActiveLink
                   to="/"
                   aria-label="Our product"
                   title="Our product"
                   className={({isActive})=>isActive?"font-medium tracking-wide text-xl capitalize  text-blue-500 transition-colors duration-200 hover:text-teal-accent-400":"font-medium tracking-wide text-xl capitalize text-black-100 transition-colors duration-200 hover:text-teal-accent-400"}
                 >
                   Home
-                </NavLink>
+                </ActiveLink>
               </li>
               <li>
-                <NavLink
+                <ActiveLink
                   to="/allrecipes"
                   aria-label="Our product"
                   title="Our product"
                   className={({isActive})=>isActive?"font-medium tracking-wide text-xl capitalize  text-black-500 transition-colors duration-200 hover:text-teal-accent-400":"font-medium tracking-wide text-xl capitalize text-black-100 transition-colors duration-200 hover:text-teal-accent-400"}
                 >
                   Recipes
-                </NavLink>
+                </ActiveLink>
               </li>
               <li>
-                <NavLink
+                <ActiveLink
                   to="/blogs"
                   aria-label="About us"
                   title="About us"
                   className={({isActive})=>isActive?"font-medium tracking-wide text-xl capitalize  text-blue-500 transition-colors duration-200 hover:text-teal-accent-400":"font-medium tracking-wide text-xl capitalize text-black-100 transition-colors duration-200 hover:text-teal-accent-400"}
                 >
                  Blogs
-                </NavLink>
+                </ActiveLink>
               </li>
             </ul>
           </div>
