@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Banner from '../Banner/Banner';
 import { Link } from 'react-router-dom';
 import { FaThumbsUp } from 'react-icons/fa';
+import Content from '../Content/Content';
 
 const Home = () => {
   const [chefs, setChef] = useState([]);
@@ -19,13 +20,14 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
+      <Content></Content>
       <h1 className='text-center font-bold text-4xl mt-20 mb-10'>Our Chefs</h1>
       {
         chefs.map(chef => <p
           key={chef.id}
           
         >
-          <div className='bg-yellow-500 '>
+          <div className='bg-yellow-500  '>
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
               <div className="grid gap-5 row-gap-8 lg:grid-cols-2">
                 <div className="flex flex-col justify-center">
