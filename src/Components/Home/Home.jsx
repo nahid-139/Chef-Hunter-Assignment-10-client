@@ -4,6 +4,7 @@ import Banner from '../Banner/Banner';
 import { Link } from 'react-router-dom';
 import { FaThumbsUp } from 'react-icons/fa';
 import Content from '../Content/Content';
+import Team from '../Team/Team';
 
 const Home = () => {
   const [chefs, setChef] = useState([]);
@@ -23,7 +24,7 @@ const Home = () => {
       <Content></Content>
       <h1 className='text-center font-bold text-4xl mt-20 mb-10'>Our Chefs</h1>
       {
-        chefs.map(chef => <p
+        chefs.map(chef => <div
           key={chef.id}
           
         >
@@ -102,8 +103,9 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </p>)
+        </div>)
       }
+      <Team></Team>
     </div>
   );
 };
