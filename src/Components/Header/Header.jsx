@@ -1,10 +1,18 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import {  FaUser } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import ActiveLink from '../ActiveLink/ActiveLink';
 
 const Header = () => {
+
+  const [loading ,setLoading] =useState(false)
+  useEffect (()=>{
+    setLoading(false)
+    setTimeout(()=>{
+      setLoading(false)
+    },5000)
+  },[])
   
       const [isMenuOpen, setIsMenuOpen] = useState(false);
 

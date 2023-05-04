@@ -19,6 +19,7 @@ import AllRecipes from './Components/Recipes/AllRecipes.jsx';
 import Blogs from './Components/Blogs/Blogs.jsx';
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",

@@ -8,6 +8,7 @@ import Team from '../Team/Team';
 
 const Home = () => {
   const [chefs, setChef] = useState([]);
+  
 
   useEffect(() => {
     fetch("https://chef-server-rho-three.vercel.app/chef")
@@ -57,6 +58,7 @@ const Home = () => {
                         <p className="text-sm text-gray-900 py-10">
                           <img src={chef.recipe_url[1]} alt="" />
                         </p>
+                        
                       </div>
                     </div>
                     <div className="bg-white border-l-4 shadow-sm border-deep-purple-accent-400">
