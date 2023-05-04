@@ -12,7 +12,7 @@ const AllRecipes = () => {
 
     return (
         <div>
-            <div className='md:grid grid-cols-2 gap-6 items-center m-20 ml-40'>
+            <div className='md:grid grid-cols-2 gap-6 items-center  m-20 ml-40'>
                 {
                     recipes.map(recipe =><div
                     key={recipe.id}
