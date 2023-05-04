@@ -16,7 +16,7 @@ const ErrorPage = () => {
 			<p className="mt-4 mb-8 dark:text-gray-400">
                 <i>{error.statusText || error.message}</i>
             </p>
-			<Link rel="noopener noreferrer" to="/home" className="px-8 py-3 font-semibold rounded bg-violet-400 dark:text-gray-900">Back to homepage</Link>
+			<Link rel="noopener noreferrer" to="/" className="px-8 py-3 font-semibold rounded bg-violet-400 dark:text-gray-900">Back to homepage</Link>
 		</div>
 	    </div>
     </section>
