@@ -1,5 +1,11 @@
 .active{
-    color: coral;
-    font: bold;
+    color: black;
+    font-size:large;
+    background-color: orange;
+    padding-left: 6px ;
+    padding-right: 6px;
+    padding-top:4px ;
+    padding-bottom:4px ;
+    border-radius: 5px;
     text-decoration: underline;
 }

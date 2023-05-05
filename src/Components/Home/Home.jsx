@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 import { FaThumbsUp } from 'react-icons/fa';
 import Content from '../Content/Content';
 import Team from '../Team/Team';
-import Loader from '../Loader/Loader';
-import { AuthContext } from '../Provider/AuthProvider';
 import LazyLoad from 'react-lazy-load';
 
 const Home = () => {
