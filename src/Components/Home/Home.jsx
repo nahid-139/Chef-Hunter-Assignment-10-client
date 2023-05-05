@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import Banner from '../Banner/Banner';
 import { Link } from 'react-router-dom';
 import { FaThumbsUp } from 'react-icons/fa';
 import Content from '../Content/Content';
 import Team from '../Team/Team';
+import Loader from '../Loader/Loader';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Home = () => {
   const [chefs, setChef] = useState([]);
@@ -17,10 +19,9 @@ const Home = () => {
   }, []);
   console.log(chefs);
 
-
-
   return (
     <div>
+      
       <Banner></Banner>
       <Content></Content>
       <h1 className='text-center font-bold text-4xl mt-20 mb-10'>Our Chefs</h1>
