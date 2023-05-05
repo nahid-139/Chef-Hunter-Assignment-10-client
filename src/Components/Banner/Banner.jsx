@@ -19,9 +19,7 @@ const Banner = () => {
                </div>
               </h2>
               <p className="text-base text-gray-700 md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                quae. explicabo.
+              A chef is a professional cook and tradesman who is proficient in all aspects of food preparation, often focusing on a particular cuisine. The word "chef" is derived from the term chef de cuisine the director or head of a kitchen.
               </p>
             </div>
             <div className="flex flex-col items-center md:flex-row">

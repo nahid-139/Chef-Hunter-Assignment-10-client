@@ -28,7 +28,7 @@ const from= location.state?.from?.pathname ||'/';
     setError('')
    Swal.fire(
   'Good job!',
-  'You clicked the button!',
+  'You are Sign In Successful!',
   'success'
     )
   // navigate part start
@@ -61,7 +61,7 @@ const from= location.state?.from?.pathname ||'/';
             console.log(user)
              Swal.fire(
      'Good job!',
-    'You clicked the button!',
+    'You are Sign In Successful!',
     'success'
     )
   // navigate part start
