@@ -1,4 +1,5 @@
 import React from 'react';
+import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
 const Banner = () => {
@@ -36,11 +37,13 @@ const Banner = () => {
           </div>
         </div>
         <div className="inset-y-0 right-0 w-full max-w-xl px-4 mx-auto lg:pl-8 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-1/2 lg:max-w-full lg:absolute xl:px-0">
+          <LazyLoad>
           <img
             className="object-cover w-full h-56 rounded-xl shadow-lg lg:shadow-none sm:h-96 lg:h-full"
             src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y2hlZnxlbnwwfHwwfHw%3D&w=1000&q=80"
             alt=""
           />
+          </LazyLoad>
         </div>
       </div>
     );

@@ -7,6 +7,7 @@ import Content from '../Content/Content';
 import Team from '../Team/Team';
 import Loader from '../Loader/Loader';
 import { AuthContext } from '../Provider/AuthProvider';
+import LazyLoad from 'react-lazy-load';
 
 const Home = () => {
   const [chefs, setChef] = useState([]);
@@ -20,7 +21,7 @@ const Home = () => {
   console.log(chefs);
 
   return (
-    <div>
+    <div className='m-4 '>
       
       <Banner></Banner>
       <Content></Content>
@@ -57,7 +58,7 @@ const Home = () => {
                           {chef.famous_recipes[0]}
                         </h6>
                         <p className="text-sm text-gray-900 py-10">
-                          <img src={chef.recipe_url[1]} alt="" />
+                          <LazyLoad><img src={chef.recipe_url[1]} alt="" /></LazyLoad>
                         </p>
                         
                       </div>
@@ -97,11 +98,11 @@ const Home = () => {
                   </div>
                 </div>
                 <div>
-                  <img
-                    className="object-cover h-56 rounded shadow-lg sm:h-96 items-center "
+                  <LazyLoad ><img
+                    className="object-cover h-56 rounded shadow-lg sm:h-96 items-center mt-20 "
                     src={chef.img_url}
                     alt=""
-                  />
+                  /></LazyLoad>
                 </div>
               </div>
             </div>

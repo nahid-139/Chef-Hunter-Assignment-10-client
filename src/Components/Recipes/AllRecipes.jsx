@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
 const AllRecipes = () => {
@@ -19,7 +20,7 @@ const AllRecipes = () => {
                     
                     >
                     <div>
-                        <img className='w-9/12 rounded-2xl' src={recipe.img_url} alt="" />
+                        <LazyLoad><img className='w-9/12 rounded-2xl' src={recipe.img_url} alt="" /></LazyLoad>
                         <p className='text-xl font-bold mt-6 mb-2'>{recipe.name}</p>
                         <p className='mb-8'>{recipe.description}</p>
                         <div>
