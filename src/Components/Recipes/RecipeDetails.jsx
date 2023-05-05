@@ -7,12 +7,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const RecipeDetails = () => {
 
-    const [isHidden, setIsHidden] = useState(false);
+    const [isDisabled, setIsDisabled] = useState(false);
     const diffToast = () => {
-        toast("Favourite Item Selected",{
+        toast("Favourite Item Added",{
             position: "top-center",
         })
-        setIsHidden(true);
+        setIsDisabled(true);
       };
 
     const recipeDetails = useLoaderData();
@@ -46,8 +46,9 @@ const RecipeDetails = () => {
                  fullSymbol={<FaStar className='text-yellow-400'></FaStar>}
                 ></Rating></p> 4.5
                 </div>
-                {isHidden ? null :<button onClick={diffToast} className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mt-6 mr-6 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Favourite Item
-            </button>}
+                <button onClick={diffToast} disabled={isDisabled} className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mt-6 mr-6 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                {isDisabled ? 'Favourite Item' : 'Favourite Item'}
+            </button>
             </ul>
             <div>
             <ToastContainer></ToastContainer>
