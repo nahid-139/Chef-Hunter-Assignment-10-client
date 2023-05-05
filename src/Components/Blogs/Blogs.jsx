@@ -1,8 +1,25 @@
 import React from 'react';
+import ReactToPdf from 'react-to-pdf'
+import { FaDownload } from "react-icons/fa";
 
 const Blogs = () => {
+    const ref = React.createRef();
+
     return (
-        <div className='m-20 '>
+        <div className=' p-3' ref={ref}>
+            <div>
+            <ReactToPdf targetRef={ref} x={.5} y={.5} scale={0.6} filename="creative-shaper.pdf">
+                        {({ toPdf }) => (
+                            <button onClick={toPdf}
+                             className=" lg:ml-[600px] flex text-center
+                              bg-orange-400 px-6 py-4 rounded-xl">
+                                <FaDownload className='mr-2'></FaDownload>
+                                 <p className='text-lg text-white font-semibold'>Download to PDF</p>
+                             </button>
+                        )}
+                    </ReactToPdf>
+            </div>
+            <div className='m-20 '>
             <div className='bg-orange-200 p-10 m-10 rounded-xl'>
                 <h1 className='text-3xl font-bold mb-6'>What is the differences between uncontrolled and controlled components?</h1>
                 <p className='text-lg mb-8'>In React, controlled components refer to components that have their state and behavior controlled by the parent component. These components rely on props passed down from the parent component to update their state and behavior. Uncontrolled components refer to components that manage their own state internally.</p>
@@ -35,6 +52,7 @@ const Blogs = () => {
                 </h1>
                 <p className='text-lg mb-8'>Custom React JS hooks are reusable functions that a React JS software developer can use to add special and unique functionality to the React applications. Usually, if there is a requirement to add a feature, one can install a third-party library and solve the problem.</p>
             </div>
+        </div>
         </div>
     );
 };
