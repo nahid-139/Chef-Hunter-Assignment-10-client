@@ -37,14 +37,14 @@ const RecipeDetails = () => {
                 <li>{recipeDetails.ingredients[9]}</li>
                 <li>{recipeDetails.ingredients[10]}</li>
                 <div className='flex justify-center mt-4'>
-                <p className='pl-2'>Your Rating</p>
-                <Rating
-                 placeholderRating={3.5}
-                 
+                <p className='pr-2'>Our Rating</p>
+                <p className='pr-2'><Rating
+                 placeholderRating={4.5}
+                 readonly
                  emptySymbol={<FaRegStar></FaRegStar>}
                  placeholderSymbol={<FaStar className='text-yellow-400'></FaStar>}
                  fullSymbol={<FaStar className='text-yellow-400'></FaStar>}
-                ></Rating>
+                ></Rating></p> 4.5
                 </div>
                 {isHidden ? null :<button onClick={diffToast} className="text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 mt-6 mr-6 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Favourite Item
             </button>}
